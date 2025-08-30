@@ -1,0 +1,4 @@
+Setup Minikube in local 
+Installed ( minikube , kubectl , docker )
+created Namespace "deployment"
+Created a pod (nginx) in deployment namespace 
