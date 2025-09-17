@@ -1,0 +1,28 @@
+First install the required tool
+awscli,eksctl,kubectl
+
+Log in 
+aws configure
+take accesskey and secret key 
+
+# Create an EKS cluster (1 node group with 2 t3.medium nodes)
+eksctl create cluster \
+  --name my-eks-cluster \
+  --region ap-south-1 \
+  --nodegroup-name linux-nodes \
+  --node-type t3.medium \
+  --nodes 2
+
+aws eks --region ap-south-1 update-kubeconfig --name my-eks-cluster
+kubectl get nodes
+
+write deploymentfile and service file
+
+kubectl apply -f nginx-deployment.yaml
+kubectl get pods
+
+kubectl apply -f nginx-service.yaml
+kubectl get svc
+
+kubectl get svc nginx-service
+http://<external-ip> access via
